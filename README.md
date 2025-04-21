@@ -31,8 +31,8 @@ Users are able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [My github repository](https://github.com/snehilsharma12/contact-form-challenge)
+- Live Site URL: [Live Webpage](https://snehilsharma12.github.io/contact-form-challenge/)
 
 ## My process
 
