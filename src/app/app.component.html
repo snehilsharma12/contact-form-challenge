@@ -1,0 +1,176 @@
+<div class="body">
+  <!-- TOAST -->
+  <div class="toast" *ngIf="showToast">
+    <div class="toast-heading">
+      <img src="assets/images/icon-success-check.svg" alt="success" />
+
+      <strong>Message Sent!</strong>
+    </div>
+
+    <div class="taost-content">
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="contact-form">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-body">
+        <section class="form-heading"><strong>Contact Us</strong></section>
+
+        <!-- FIRST NAME AND LAST NAME -->
+        <div class="field-names">
+          <div class="field-boxes">
+            <label for="firstName"
+              >First Name <span class="req-symb">*</span></label
+            >
+            <input id="firstName" type="text" formControlName="firstName" />
+            <div
+              *ngIf="
+                contactForm.get('firstName')?.invalid &&
+                contactForm.get('firstName')?.touched
+              "
+              class="error"
+            >
+              <div *ngIf="contactForm.get('firstName')?.errors?.['required']">
+                This field is required!
+              </div>
+              <div *ngIf="contactForm.get('firstName')?.errors?.['pattern']">
+                Name can only contain letters, spaces and ' or -
+              </div>
+            </div>
+          </div>
+
+          <div class="field-boxes">
+            <label for="lastName"
+              >Last Name <span class="req-symb">*</span></label
+            >
+            <input id="lastName" type="text" formControlName="lastName" />
+            <div
+              *ngIf="
+                contactForm.get('lastName')?.invalid &&
+                contactForm.get('lastName')?.touched
+              "
+              class="error"
+            >
+              <div *ngIf="contactForm.get('lastName')?.errors?.['required']">
+                This field is required!
+              </div>
+              <div *ngIf="contactForm.get('lastName')?.errors?.['pattern']">
+                Name can only contain letters, spaces and ' or -
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="field-email">
+          <div class="field-boxes">
+            <label for="email"
+              >Email Address <span class="req-symb">*</span></label
+            >
+            <input type="email" id="email" formControlName="email" />
+            <div
+              *ngIf="
+                contactForm.get('email')?.invalid &&
+                contactForm.get('email')?.touched
+              "
+              class="error"
+            >
+              <div *ngIf="contactForm.get('email')?.errors?.['required']">
+                This field is required!
+              </div>
+              <div *ngIf="contactForm.get('email')?.errors?.['email']">
+                Enter a valid email!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Query Options -->
+        <div class="field-query">
+          <div class="query-head">
+            <label for="query"
+              >Query Type <span class="req-symb">*</span></label
+            >
+          </div>
+
+          <div class="query-options-holder">
+            <div class="field-query-options">
+              <label>
+                <input
+                  type="radio"
+                  formControlName="queryType"
+                  id="general"
+                  value="General Query"
+                />
+                General Query
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  formControlName="queryType"
+                  id="support"
+                  value="Support Request"
+                />
+                Support Request
+              </label>
+            </div>
+          </div>
+
+          <div
+            *ngIf="
+              contactForm.get('queryType')?.invalid &&
+              (contactForm.get('queryType')?.touched || submitted)
+            "
+            class="error"
+          >
+            Please select a query type.
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="field-message">
+          <label for="message">Message <span class="req-symb">*</span></label>
+          <div>
+            <textarea
+              id="message"
+              formControlName="message"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div
+            *ngIf="
+              contactForm.get('message')?.invalid &&
+              contactForm.get('message')?.touched
+            "
+            class="error"
+          >
+            This field is required!
+          </div>
+        </div>
+
+        <!-- Consent -->
+        <div class="field-consent">
+          <label>
+            <input type="checkbox" formControlName="consent" />
+            I consent to being contacted by the team.
+            <span class="req-symb">*</span>
+          </label>
+
+          <div
+            *ngIf="contactForm.get('consent')?.invalid && submitted"
+            class="error"
+          >
+            To submit this form, please consent to being contacted.
+          </div>
+        </div>
+      </div>
+      <div class="sub-button">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

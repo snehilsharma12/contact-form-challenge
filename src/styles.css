@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-green-primary: hsl(169, 82%, 27%);
+  --color-green-secondary: hsl(148, 38%, 91%);
+  --color-red: hsl(0, 66%, 54%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-grey: hsl(186, 15%, 59%);
+  --color-grey-darker: hsl(187, 24%, 22%);
+}
+
+@font-face {
+  font-family: "Karla";
+  src: url("assets/fonts/static/Karla-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Karla";
+  src: url("assets/fonts/static/Karla-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  background-color: var(--color-green-secondary);
+  padding: 1rem;
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    font-size: 16px;
+    padding: 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
